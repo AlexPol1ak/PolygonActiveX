@@ -1,0 +1,55 @@
+﻿// PolygonActiveX.idl: источник языка IDL для PolygonActiveX
+//
+
+// Этот файл будет обработан средством MIDL для
+// создание библиотеки типов ($handlersafeidlname$.tlb) и кода маршалирования.
+
+#include "olectl.h"
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(f46eb66b-2850-44d5-a7f5-2c589a108759),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IPolyCtl : IDispatch
+{
+	[propput, bindable, requestedit, id(DISPID_BORDERCOLOR)]
+	HRESULT BorderColor([in]OLE_COLOR clr);
+	[propget, bindable, requestedit, id(DISPID_BORDERCOLOR)]
+	HRESULT BorderColor([out, retval]OLE_COLOR* pclr);
+	[propput, bindable, requestedit, id(DISPID_FILLCOLOR)]
+	HRESULT FillColor([in]OLE_COLOR clr);
+	[propget, bindable, requestedit, id(DISPID_FILLCOLOR)]
+	HRESULT FillColor([out, retval]OLE_COLOR* pclr);
+};
+
+[
+	uuid(b95af866-f0b0-41a6-bbbc-79d2fd29da77),
+	version(1.0),
+]
+library PolygonActiveXLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(648c8a40-5af1-4de3-8922-00050bb06342)
+	]
+	dispinterface _IPolyCtlEvents
+	{
+		properties:
+		methods:
+	};
+	[
+		uuid(f21a1464-a97f-4e47-be62-e5b672aec5d1),
+		control
+	]
+	coclass PolyCtl
+	{
+		[default] interface IPolyCtl;
+		[default, source] dispinterface _IPolyCtlEvents;
+	};
+};
+

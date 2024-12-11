@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PolygonActiveX", "PolygonActiveX.vcxproj", "{18D949B5-002F-4EC2-801B-CFDC46E7E74F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PolygonActiveXPS", "PolygonActiveXPS\PolygonActiveXPS.vcxproj", "{71FE9A0B-C880-4F29-B879-C97730C65AAD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{18D949B5-002F-4EC2-801B-CFDC46E7E74F} = {18D949B5-002F-4EC2-801B-CFDC46E7E74F}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{18D949B5-002F-4EC2-801B-CFDC46E7E74F}.Debug|x64.ActiveCfg = Debug|x64
+		{18D949B5-002F-4EC2-801B-CFDC46E7E74F}.Debug|x64.Build.0 = Debug|x64
+		{18D949B5-002F-4EC2-801B-CFDC46E7E74F}.Debug|x86.ActiveCfg = Debug|Win32
+		{18D949B5-002F-4EC2-801B-CFDC46E7E74F}.Debug|x86.Build.0 = Debug|Win32
+		{18D949B5-002F-4EC2-801B-CFDC46E7E74F}.Release|x64.ActiveCfg = Release|x64
+		{18D949B5-002F-4EC2-801B-CFDC46E7E74F}.Release|x64.Build.0 = Release|x64
+		{18D949B5-002F-4EC2-801B-CFDC46E7E74F}.Release|x86.ActiveCfg = Release|Win32
+		{18D949B5-002F-4EC2-801B-CFDC46E7E74F}.Release|x86.Build.0 = Release|Win32
+		{71FE9A0B-C880-4F29-B879-C97730C65AAD}.Debug|x64.ActiveCfg = Debug|x64
+		{71FE9A0B-C880-4F29-B879-C97730C65AAD}.Debug|x86.ActiveCfg = Debug|Win32
+		{71FE9A0B-C880-4F29-B879-C97730C65AAD}.Release|x64.ActiveCfg = Release|x64
+		{71FE9A0B-C880-4F29-B879-C97730C65AAD}.Release|x86.ActiveCfg = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
