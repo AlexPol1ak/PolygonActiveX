@@ -1,5 +1,6 @@
 ﻿// PolyCtl.h: объявление CPolyCtl
 #pragma once
+#include <math.h>
 #include "resource.h"       // основные символы
 #include <atlctl.h>
 #include "PolygonActiveX_i.h"
@@ -45,6 +46,9 @@ public:
 
 	CPolyCtl()
 	{
+		m_clrBorderColor = RGB(255, 0, 0);
+		m_clrFillColor = RGB(255, 0, 0);
+		m_Sides = 5;
 	}
 
 DECLARE_OLEMISC_STATUS(OLEMISC_RECOMPOSEONRESIZE |
@@ -150,8 +154,29 @@ public:
 		{
 			bSelectOldRgn = (SelectClipRgn(di.hdcDraw, hRgnNew) != ERROR);
 		}
-
-		Rectangle(di.hdcDraw, rc.left, rc.top, rc.right, rc.bottom);
+		//*****************************************************************************/
+		HDC hdc = di.hdcDraw;
+		COLORREF colFore;
+		HBRUSH hOldBrush, hBrush;
+		HPEN hOldPen, hPen;
+		// Translate m_colFore into a COLORREF type
+		OleTranslateColor(m_clrFillColor, NULL, &colFore);
+		// Create and select the colors to draw the circle
+		hPen = (HPEN)GetStockObject(BLACK_PEN);
+		hOldPen = (HPEN)SelectObject(hdc, hPen);
+		hBrush = (HBRUSH)GetStockObject(WHITE_BRUSH);
+		hOldBrush = (HBRUSH)SelectObject(hdc, hBrush);
+		Ellipse(hdc, rc.left, rc.top, rc.right, rc.bottom);
+		// Create and select the brush that will be used to fill the polygon
+			hBrush = CreateSolidBrush(colFore);
+		SelectObject(hdc, hBrush);
+		CalcPoints(rc);
+		Polygon(hdc, &m_arrPoint[0], m_Sides);
+		// Select back the old pen and brush and delete the brush we created
+		SelectObject(hdc, hOldPen);
+		SelectObject(hdc, hOldBrush);
+		DeleteObject(hBrush);
+		//*****************************************************************************/
 		SetTextAlign(di.hdcDraw, TA_CENTER|TA_BASELINE);
 		LPCTSTR pszText = _T("PolyCtl");
 #ifndef _WIN32_WCE
@@ -187,6 +212,7 @@ public:
 	OLE_COLOR m_clrFillColor;
 
 	short m_Sides = 5;
+	POINT m_arrPoint[10];
 
 	void OnFillColorChanged()
 	{
@@ -209,6 +235,8 @@ public:
 	}
 	STDMETHOD(get_Sides)(SHORT* pVal);
 	STDMETHOD(put_Sides)(SHORT newVal);
+
+	void CalcPoints(const RECT& rc);
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(PolyCtl), CPolyCtl)
