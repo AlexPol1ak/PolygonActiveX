@@ -44,6 +44,8 @@ library PolygonActiveXLib
 	{
 		properties:
 		methods:
+			[id(1), helpstring("Клик внутри")] void ClickIn([in] LONG x,[in] LONG y);
+			[id(2), helpstring("Клик не внутри")] void ClickOut([in] LONG x, [in] LONG y);
 	};
 	[
 		uuid(f21a1464-a97f-4e47-be62-e5b672aec5d1),

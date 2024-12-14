@@ -17,9 +17,10 @@ STDMETHODIMP CPolyCtl::get_Sides(SHORT* pVal)
 
 STDMETHODIMP CPolyCtl::put_Sides(SHORT newVal)
 {
-    if (2 < newVal && newVal < 10)
+    if (3 < newVal && newVal < 10)
     {
         m_Sides = newVal;
+        FireViewChange();
         return S_OK;
     }
     else
