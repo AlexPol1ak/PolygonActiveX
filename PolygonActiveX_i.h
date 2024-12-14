@@ -114,6 +114,12 @@ EXTERN_C const IID IID_IPolyCtl;
         virtual /* [id][requestedit][bindable][propget] */ HRESULT STDMETHODCALLTYPE get_FillColor( 
             /* [retval][out] */ OLE_COLOR *pclr) = 0;
         
+        virtual /* [helpstring][id][propget] */ HRESULT STDMETHODCALLTYPE get_Sides( 
+            /* [retval][out] */ SHORT *pVal) = 0;
+        
+        virtual /* [helpstring][id][propput] */ HRESULT STDMETHODCALLTYPE put_Sides( 
+            /* [in] */ SHORT newVal) = 0;
+        
     };
     
     
@@ -199,6 +205,16 @@ EXTERN_C const IID IID_IPolyCtl;
             IPolyCtl * This,
             /* [retval][out] */ OLE_COLOR *pclr);
         
+        DECLSPEC_XFGVIRT(IPolyCtl, get_Sides)
+        /* [helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Sides )( 
+            IPolyCtl * This,
+            /* [retval][out] */ SHORT *pVal);
+        
+        DECLSPEC_XFGVIRT(IPolyCtl, put_Sides)
+        /* [helpstring][id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_Sides )( 
+            IPolyCtl * This,
+            /* [in] */ SHORT newVal);
+        
         END_INTERFACE
     } IPolyCtlVtbl;
 
@@ -246,6 +262,12 @@ EXTERN_C const IID IID_IPolyCtl;
 
 #define IPolyCtl_get_FillColor(This,pclr)	\
     ( (This)->lpVtbl -> get_FillColor(This,pclr) ) 
+
+#define IPolyCtl_get_Sides(This,pVal)	\
+    ( (This)->lpVtbl -> get_Sides(This,pVal) ) 
+
+#define IPolyCtl_put_Sides(This,newVal)	\
+    ( (This)->lpVtbl -> put_Sides(This,newVal) ) 
 
 #endif /* COBJMACROS */
 

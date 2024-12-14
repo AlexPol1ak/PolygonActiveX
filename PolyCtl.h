@@ -204,6 +204,8 @@ public:
 	void FinalRelease()
 	{
 	}
+	STDMETHOD(get_Sides)(SHORT* pVal);
+	STDMETHOD(put_Sides)(SHORT newVal);
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(PolyCtl), CPolyCtl)
