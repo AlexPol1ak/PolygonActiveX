@@ -77,6 +77,9 @@
       <Filter>Файлы ресурсов</Filter>
     </None>
     <None Include="PolyCtl.htm" />
+    <None Include="PolyCtl1.rgs">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Midl Include="PolygonActiveX.idl">
@@ -85,6 +88,9 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="PolyCtl.bmp">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="PolyCtl1.bmp">
       <Filter>Файлы ресурсов</Filter>
     </Image>
   </ItemGroup>
