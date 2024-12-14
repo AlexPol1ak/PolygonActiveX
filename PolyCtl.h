@@ -185,6 +185,9 @@ public:
 		ATLTRACE(_T("OnBorderColorChanged\n"));
 	}
 	OLE_COLOR m_clrFillColor;
+
+	short m_Sides = 5;
+
 	void OnFillColorChanged()
 	{
 		ATLTRACE(_T("OnFillColorChanged\n"));

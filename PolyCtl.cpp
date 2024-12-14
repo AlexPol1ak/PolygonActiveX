@@ -8,7 +8,8 @@
 
 STDMETHODIMP CPolyCtl::get_Sides(SHORT* pVal)
 {
-    // TODO: Добавьте сюда код реализации
+    *pVal = m_Sides;
+    return S_OK;
 
     return S_OK;
 }
@@ -16,7 +17,15 @@ STDMETHODIMP CPolyCtl::get_Sides(SHORT* pVal)
 
 STDMETHODIMP CPolyCtl::put_Sides(SHORT newVal)
 {
-    // TODO: Добавьте сюда код реализации
+    if (2 < newVal && newVal < 10)
+    {
+        m_Sides = newVal;
+        return S_OK;
+    }
+    else
+    {
+        return Error(_T("Shape must have between 3 and 10 sides"));
+    }
 
     return S_OK;
 }
