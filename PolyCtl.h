@@ -178,7 +178,9 @@ public:
 		DeleteObject(hBrush);
 		//*****************************************************************************/
 		SetTextAlign(di.hdcDraw, TA_CENTER|TA_BASELINE);
-		LPCTSTR pszText = _T("PolyCtl");
+		/*LPCTSTR pszText = _T("PolyCtl");*/
+		TCHAR pszText[100];  // Буфер для финальной строки
+		wsprintf(pszText, _T("PolyCtl. Sides: %d"), m_Sides);
 #ifndef _WIN32_WCE
 		TextOut(di.hdcDraw,
 			(rc.left + rc.right) / 2,
