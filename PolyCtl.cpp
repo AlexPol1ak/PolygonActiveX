@@ -52,22 +52,23 @@ void CPolyCtl::CalcPoints(const RECT& rc)
     }
 }
 
-LRESULT CPolyCtl::OnLButtonDownn(UINT, WPARAM, LPARAM lParam, BOOL&)
+LRESULT CPolyCtl::OnLButtonDown(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM lParam,
+    BOOL& /*bHandled*/)
 {
     HRGN hRgn;
-    WORD xPos = LOWORD(lParam); // horizontal position of cursor
-    WORD yPos = HIWORD(lParam); // vertical position of cursor
+    WORD xPos = LOWORD(lParam);  // horizontal position of cursor
+    WORD yPos = HIWORD(lParam);  // vertical position of cursor
     CalcPoints(m_rcPos);
     // Create a region from our list of points
     hRgn = CreatePolygonRgn(&m_arrPoint[0], m_Sides, WINDING);
     // If the clicked point is in our polygon then fire the ClickIn
-    // event otherwise we fire the ClickOut event
+    //  event otherwise we fire the ClickOut event
     if (PtInRegion(hRgn, xPos, yPos))
         Fire_ClickIn(xPos, yPos);
     else
         Fire_ClickOut(xPos, yPos);
     // Delete the region that we created
     DeleteObject(hRgn);
-    return LRESULT();
+    return 0;
 }
 

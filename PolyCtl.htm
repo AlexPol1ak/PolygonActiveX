@@ -6,8 +6,17 @@
 <BODY>
 
 
-<OBJECT ID="PolyCtl" CLASSID="CLSID:f21a1464-a97f-4e47-be62-e5b672aec5d1"></OBJECT>
+    <OBJECT ID="PolyCtl" CLASSID="CLSID:f21a1464-a97f-4e47-be62-e5b672aec5d1"></OBJECT>
+    <SCRIPT>
+        function PolyCtl::ClickIn(x, y)
+        {
+            PolyCtl.Sides = PolyCtl.Sides + 1;
+        }
 
+        function PolyCtl::ClickOut(x, y) {
+            PolyCtl.Sides = PolyCtl.Sides - 1;
+        }
+    </SCRIPT>
 
 </BODY>
 </HTML>

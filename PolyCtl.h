@@ -88,6 +88,7 @@ BEGIN_COM_MAP(CPolyCtl)
 	COM_INTERFACE_ENTRY(IObjectWithSite)
 	COM_INTERFACE_ENTRY(IServiceProvider)
 	COM_INTERFACE_ENTRY_IID(IID_IObjectSafety, IObjectSafety)
+	COM_INTERFACE_ENTRY(IObjectSafety)
 END_COM_MAP()
 
 BEGIN_PROP_MAP(CPolyCtl)
@@ -112,6 +113,7 @@ END_CONNECTION_POINT_MAP()
 BEGIN_MSG_MAP(CPolyCtl)
 	CHAIN_MSG_MAP(CComControl<CPolyCtl>)
 	DEFAULT_REFLECTION_HANDLER()
+	MESSAGE_HANDLER(WM_LBUTTONDOWN, OnLButtonDown)
 END_MSG_MAP()
 // Прототипы обработчика:
 //  LRESULT MessageHandler(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
@@ -241,7 +243,7 @@ public:
 	void CalcPoints(const RECT& rc);
 
 
-	LRESULT OnLButtonDownn(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM lParam, BOOL& /*bHandled*/);
+	LRESULT OnLButtonDown(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/, BOOL& /*bHandled*/);
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(PolyCtl), CPolyCtl)

@@ -80,6 +80,7 @@
     <None Include="PolyCtl1.rgs">
       <Filter>Файлы ресурсов</Filter>
     </None>
+    <None Include="cpp.hint" />
   </ItemGroup>
   <ItemGroup>
     <Midl Include="PolygonActiveX.idl">

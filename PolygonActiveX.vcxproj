@@ -265,6 +265,7 @@
     <ResourceCompile Include="PolygonActiveX.rc" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="cpp.hint" />
     <None Include="PolyCtl.htm">
       <DeploymentContent>true</DeploymentContent>
     </None>
