@@ -239,6 +239,9 @@ public:
 	STDMETHOD(put_Sides)(SHORT newVal);
 
 	void CalcPoints(const RECT& rc);
+
+
+	LRESULT OnLButtonDownn(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM lParam, BOOL& /*bHandled*/);
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(PolyCtl), CPolyCtl)
